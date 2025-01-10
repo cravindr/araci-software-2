@@ -3,13 +3,14 @@ const bodyParser = require('body-parser');
 const customerRoutes = require('./routes/customerRoutes');
 const placeRoutes = require('./routes/placeRoutes');
 const userRoutes = require('./routes/userRoutes');
+const cors = require('cors'); // Import CORS
 
 const app = express();
 const PORT = 3000;
 
 // Middleware
 app.use(bodyParser.json());
-
+app.use(cors());
 // Routes
 app.use('/api/customers', customerRoutes);
 app.use('/api/places', placeRoutes);
